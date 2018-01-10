@@ -9,19 +9,35 @@ namespace Donger.BuckeyeEngine{
 
 		[Range(2000, 3000)]
 		[SerializeField] int _year;
-		public int Year{get{return _year;}}
+		public int Year{
+			get{return _year;}
+			set{_year = value;}
+		}
 
 		[Range(1, 12)]
 		[SerializeField] int _month;
-		public int Month {get{return _month;}}
+		public int Month {
+			get{return _month;}
+			set{_month = value;}
+		}
 		[Range(1, 30)]
 		[SerializeField] int _day;
-		public int Day{get {return _day;}}
+		public int Day{
+			get {return _day;}
+			set{_day = value;}
+		}
 
 		DateTime _date;
 		public DateTime DateTime{
 			get{return _date;}
 			set{_date = value;}
+		}
+
+		public DayOfWeek DayOfWeek{
+			get{
+				var dateTime = new DateTime(_year, _month, _day);
+				return dateTime.DayOfWeek;
+			}
 		}
 		
 	#region Constructors
@@ -43,12 +59,26 @@ namespace Donger.BuckeyeEngine{
 
 	#region Public Methods
 
-		///<summary>
-		///Adds days to the current date that is set
-		///</summary>
-		public DateTime AddDays(int days)
+		///<summary>Forwards the month</summary>
+		public void ForwardMonth(){
+			_month += 1;
+
+			if (_month > 12){
+				_month = 1;
+				_year += 1;
+			}
+		}
+
+		///<summary>Rewinds the month</summary>
+		public void BackMonth()
 		{
-			return _date.AddDays(days);
+			_month -= 1;
+
+			if (_month < 1)
+			{
+				_month = 12;
+				_year -= 1;
+			}
 		}
 
 	#endregion

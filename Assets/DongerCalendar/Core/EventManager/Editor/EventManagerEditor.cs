@@ -7,10 +7,8 @@ using UnityEditor;
 namespace Donger.BuckeyeEngine{
 	[CustomEditor(typeof(EventManager))]
 	public class EventManagerEditor : Editor{
-		
 		EventManager _eventManager;
 		string _path;
-		GUISkin _skin;
 		CoreEventEditorWindow _coreEventEditorWindow;
 		public bool CoreEventEditorWindowOpen = false;
 
@@ -24,9 +22,8 @@ namespace Donger.BuckeyeEngine{
 			serializedObject.Update();
 
 			DrawDefaultInspector();
-			//Setup the skin
-			_skin = (GUISkin)(AssetDatabase.LoadAssetAtPath(_path, typeof(GUISkin)));
-			
+
+				
 			//Show the number of events on this date. 
 			EditorGUILayout.BeginHorizontal();
 			EditorGUILayout.LabelField("Events On this Date", EditorStyles.boldLabel);
@@ -89,7 +86,7 @@ namespace Donger.BuckeyeEngine{
 		///<summary>Refreshes the current date events</summary>
 		public virtual void RefreshCurrentDateEvents()
 		{
-			var date = _eventManager.selectedDate;
+			var date = _eventManager.selectedDateTime;
 			var selectedDate = new Date(date.Year, date.Month, date.Day);
 			_eventManager.RefreshCoreEvents(selectedDate);
 		}

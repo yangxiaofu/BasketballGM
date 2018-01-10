@@ -15,8 +15,7 @@ namespace Donger.BuckeyeEngine{
         public bool MonthWindowOpen = false;
         ///<summary>Ensures that the Year Window is only opened once</summary>
         public bool YearWindowOpen = false;
-		protected string[] _months = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"};
-        protected string[] _daysInWeek = {"Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"};
+		
         GUISkin _skin;
         string _path = "Assets/DongerCalendar/Core/GUISkin/GUISkin.guiskin";
         
@@ -71,6 +70,8 @@ namespace Donger.BuckeyeEngine{
 
             EditorGUILayout.Space();
 
+            DrawDefaultInspector();
+
             serializedObject.ApplyModifiedProperties();
         }
 
@@ -79,7 +80,7 @@ namespace Donger.BuckeyeEngine{
         {
             EditorGUILayout.BeginHorizontal();
             EditorGUILayout.LabelField("Selected Date", EditorStyles.boldLabel, GUILayout.Width(100));
-            var selectedDate = _calendar.SelectedMonth + "/" + _calendar.SelectedDay + "/" + _calendar.SelectedYear;
+            var selectedDate = _calendar.SelectedDate.Month + "/" + _calendar.SelectedDate.Day + "/" + _calendar.SelectedDate.Year;
             EditorGUILayout.LabelField(selectedDate);
             EditorGUILayout.EndHorizontal();
         }
@@ -124,7 +125,7 @@ namespace Donger.BuckeyeEngine{
                 DecreaseMonth();
             }
 
-            if (GUILayout.Button(_months[Month - 1].ToString(), GUILayout.Width(300)))
+            if (GUILayout.Button(Calendar.Months[Month - 1].ToString(), GUILayout.Width(300)))
             {
                 if (!MonthWindowOpen)
                 {
@@ -156,30 +157,31 @@ namespace Donger.BuckeyeEngine{
 
             //List out the days of the week.
             EditorGUILayout.BeginHorizontal();
-            for (int i = 0; i < _daysInWeek.Length; i++)
+            for (int i = 0; i < Calendar.DaysInWeek.Length; i++)
             {
-                EditorGUILayout.LabelField(_daysInWeek[i], GUILayout.Width(buttonWidth));   
+                EditorGUILayout.LabelField(Calendar.DaysInWeek[i], GUILayout.Width(buttonWidth));   
             }
             EditorGUILayout.EndHorizontal();
 
             //While there are still days left in the month.
             while (day <= daysInMonth)
             {
-                //Draw the empty slots where days to not exist.
+                //Initializations
                 var date = new DateTime(year, month, day);
                 var dayOfWeek = date.DayOfWeek;
-                var dayOfWeekIndex = GetDayOfWeekIndex(dayOfWeek);
+                var dayOfWeekIndex = Calendar.GetDayOfWeekIndex(dayOfWeek);
 
 				//Begin a new row.
                 EditorGUILayout.BeginHorizontal();
 
-                for (int j = 0; j < dayOfWeekIndex; j++)
+                //Draw the empty slots where days to not exist.
+                for (int i = 0; i < dayOfWeekIndex; i++)
                 {
                     GUILayout.Box("", GUILayout.Width(buttonWidth));
                 }
 
                 //Draw actual days
-                for (int j = dayOfWeekIndex; j < 7; j++)
+                for (int i = dayOfWeekIndex; i < 7; i++)
                 {
                     EditorGUILayout.BeginVertical(GUILayout.Width(columnWidth));
 
@@ -198,7 +200,6 @@ namespace Donger.BuckeyeEngine{
                         else {
                             GUILayout.Box(coreEvents.Count.ToString(), GUILayout.Width(buttonWidth));    
                         }
-                        
                     }
                     
 					//If a day is selected, then update the calendar with the date. 
@@ -226,26 +227,6 @@ namespace Donger.BuckeyeEngine{
             EditorGUILayout.Space();
             EditorGUILayout.Separator();
         }
-
-		///<summary>Returns the integer representation for the day of the week.  Returns the index related to the day.</summary>
-        protected virtual int GetDayOfWeekIndex(DayOfWeek dayOfWeek)
-        {
-			if (dayOfWeek == DayOfWeek.Sunday){
-				return 0;
-			} else if (dayOfWeek == DayOfWeek.Monday){
-				return 1; 
-			} else if (dayOfWeek == DayOfWeek.Tuesday){
-				return 2;
-			} else if (dayOfWeek == DayOfWeek.Wednesday){
-				return 3;	
-			} else if (dayOfWeek == DayOfWeek.Thursday){
-				return 4;
-			} else if (dayOfWeek == DayOfWeek.Friday){
-				return 5;
-			} else {
-				return 6;
-			}
-		}
 
         protected virtual void DecreaseMonth()
         {

@@ -11,7 +11,8 @@ namespace Donger.BuckeyeEngine{
 	public class EventManager : MonoBehaviour
 	{
 		[Tooltip("The database that stores all of the events in the game.")]
-		public EventsDatabase Database;
+		[SerializeField] EventsDatabase _database; //DO NOT MAKE THIS PUBLIC, BECAUSE IT'LL ERASE THE DATBASE.  INSTEAD USE A GETTER SETTER if you want to access from the outside.
+		public EventsDatabase Database{get{return _database;}}
 
 		[Tooltip("This is the transform that the events will be parented to.  If this is null, then it'll automatically create an Events parent.")]
 		[SerializeField] protected Transform _parentForEvents;
@@ -24,7 +25,9 @@ namespace Donger.BuckeyeEngine{
 		[SerializeField] int _numberOfEventsToGenerate = 1;
 
 		public string EventDate;
-		public DateTime selectedDate;
+		public DateTime selectedDateTime;
+		public Date selectedDate{get{return new Date(selectedDateTime.Year, selectedDateTime.Month, selectedDateTime.Day);}}
+		
 		protected Calendar _calendar;
 		protected const string EVENTS = "Events";
 		public List<CoreEvent> CoreEvents = new List<CoreEvent>();
@@ -90,7 +93,7 @@ namespace Donger.BuckeyeEngine{
         protected virtual void OnCalendarUpdated(DateTime date)
         {
 			//Update the variables. 
-            selectedDate = date;
+            selectedDateTime = date;
 			var dateString = date.Month + "/" + date.Day + "/" + date.Year;
 			EventDate = dateString;
 
@@ -111,7 +114,7 @@ namespace Donger.BuckeyeEngine{
 					for (int i = 0; i < _numberOfEventsToGenerate; i++)
             		{
 						var coreEvent = new GameCoreEvent("Game", beginDate.Date);
-						Database.Add(coreEvent);
+						_database.Add(coreEvent);
             		}
                     break;
                 case EventType.Draft: 
@@ -120,7 +123,7 @@ namespace Donger.BuckeyeEngine{
 					for (int i = 0; i < _numberOfEventsToGenerate; i++)
             		{
 						var coreEvent = new PracticeCoreEvent("Practice", beginDate.Date);
-						Database.Add(coreEvent);
+						_database.Add(coreEvent);
             		}
 					break;
 				case EventType.FreeAgency:
@@ -131,12 +134,12 @@ namespace Donger.BuckeyeEngine{
 		///<summary>Get number of events from this date.</summary>
 		public virtual List<CoreEvent> GetEvents(DateTime date)
 		{
-			return Database.Find(date);
+			return _database.Find(date);
 		}
 
         public virtual void RemoveEvent(string coreEventID)
         {
-            Database.Remove(coreEventID);
+            _database.RemoveAll(coreEventID);
         }
     }
 }

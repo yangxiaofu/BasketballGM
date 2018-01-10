@@ -64,11 +64,20 @@
      <Compile Include="Assets\DongerCalendar\Core\Scripts\ICoreEvents.cs" />
      <Compile Include="Assets\DongerCalendar\Core\Scripts\PracticeCoreEvent.cs" />
      <Compile Include="Assets\DongerCalendar\Core\Scripts\PracticeEventBehaviour.cs" />
+     <Compile Include="Assets\DongerCalendar\Core\Scripts\Vector3ExtensionMethod.cs" />
+     <Compile Include="Assets\DongerCalendar\Core\UIBuilder\CellUI\ButtonCellDongerUI.cs" />
+     <Compile Include="Assets\DongerCalendar\Core\UIBuilder\CellUI\CellBuilder.cs" />
+     <Compile Include="Assets\DongerCalendar\Core\UIBuilder\CellUI\CellUI.cs" />
+     <Compile Include="Assets\DongerCalendar\Core\UIBuilder\CellUI\DongerUI.cs" />
+     <Compile Include="Assets\DongerCalendar\Core\UIBuilder\CellUI\TextCellDongerUI.cs" />
+     <Compile Include="Assets\DongerCalendar\Core\UIBuilder\Scripts\CalendarUIBuilder.cs" />
+     <Compile Include="Assets\DongerCalendar\Core\UIBuilder\Scripts\UIBuilder.cs" />
      <Compile Include="Assets\DongerCalendar\Tools\GenerateID.cs" />
      <None Include="Assets\DongerCalendar\Documentation\CalendarDesign.txt" />
      <None Include="Assets\DongerCalendar\Documentation\readme.txt" />
      <None Include="Assets\Documentation\readme.txt" />
      <None Include="Assets\DongerCalendar\Documentation\GameDesignDocument.txt" />
+     <None Include="Assets\Documentation\Documentation.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

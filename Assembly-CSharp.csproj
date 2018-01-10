@@ -69,6 +69,7 @@
      <Compile Include="Assets\DongerCalendar\Core\UIBuilder\CellUI\CellBuilder.cs" />
      <Compile Include="Assets\DongerCalendar\Core\UIBuilder\CellUI\CellUI.cs" />
      <Compile Include="Assets\DongerCalendar\Core\UIBuilder\CellUI\DongerUI.cs" />
+     <Compile Include="Assets\DongerCalendar\Core\UIBuilder\CellUI\RowCellDongerUI.cs" />
      <Compile Include="Assets\DongerCalendar\Core\UIBuilder\CellUI\TextCellDongerUI.cs" />
      <Compile Include="Assets\DongerCalendar\Core\UIBuilder\Scripts\CalendarUIBuilder.cs" />
      <Compile Include="Assets\DongerCalendar\Core\UIBuilder\Scripts\UIBuilder.cs" />

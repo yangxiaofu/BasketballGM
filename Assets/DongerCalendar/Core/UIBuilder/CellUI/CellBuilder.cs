@@ -113,6 +113,29 @@ namespace Donger.BuckeyeEngine{
 		}
 
 	#endregion
+	
+	#region Horizontal LayoutGroup
+
+		private bool _childForceExpandHeight;
+		private float _spacing;
+		private bool _childControlWidth;
+
+		public void SetHorizontalLayoutGroup(bool childForceExpandHeight, float spacing, bool childControlWidth)
+		{
+			_childControlWidth = childControlWidth;
+			_spacing = spacing;
+			_childForceExpandHeight = childForceExpandHeight;
+		}
+
+		public void ApplyHorizontalLayoutGroup(GameObject cell)
+		{
+			var lg = cell.AddComponent<HorizontalLayoutGroup>();
+			lg.childForceExpandHeight = _childForceExpandHeight;
+			lg.spacing = _spacing;
+			lg.childControlWidth = _childControlWidth;
+		}
+
+	#endregion
 	}
 
 }

@@ -38,33 +38,29 @@ namespace Donger.BuckeyeEngine{
             _uiParentTransform.gameObject.GetComponent<VerticalLayoutGroup>();
         }
 
-		///<summary> Create a row for each game object.</summary>
+		///<summary> Create a row for each game object.  </summary>
 		///<param name="parent">The parent that the the row will be childred to.  </param>
-		///<returns>Returns a Row Game Object.!-- </returns>
+		///<returns>Returns a Row Game Object.  </returns>
         protected virtual GameObject CreateUIRow(string rowName, Transform parent = null)
         {
-            var row = new GameObject(rowName);
-            row.AddComponent<RectTransform>();
-            
-            var le = row.AddComponent<LayoutElement>();
-            le.preferredWidth = _preferredWidth;
-			le.flexibleHeight = _flexibleHeight;
+            var cellBuilder = new CellBuilder("Row");
+            cellBuilder.SetLayoutElement(_preferredHeight, _preferredWidth);
+            cellBuilder.SetHorizontalLayoutGroup(false, _spacing, true);
+            cellBuilder.SetParent(parent);
 
-            var lg = row.AddComponent<HorizontalLayoutGroup>();
-            lg.childForceExpandHeight = false;
-            lg.spacing = _spacing;
-            lg.childControlWidth = true;
+            DongerUI.CellBuilderHandler cellBuilderHander = cellBuilder.ApplyLayoutElement;
+            cellBuilderHander += cellBuilder.ApplyHorizontalLayoutGroup;
+            cellBuilderHander += cellBuilder.ApplyParent;
 
-			if (parent) row.transform.SetParent(parent, false);
-            
-            return row;
+            var cell = new RowCellDongerUI(rowName, cellBuilderHander);
+            return cell.Build();
         }
 
-		 ///<summary>This generates the button UI</summary>
-        ///<param name="buttonName">The name of the button displayed</param>
-        ///<param name="parent">The parent transform of the button</param>
-        ///<param name="action">The action that the button triggers onclick</param>
-		///<returns>Returns the button gameObject</returns>
+		///<summary>This generates the button UI.  </summary>
+        ///<param name="buttonName">The name of the button displayed.  </param>
+        ///<param name="parent">The parent transform of the button.  </param>
+        ///<param name="action">The action that the button triggers onclick.  </param>
+		///<returns>Returns the button gameObject.  </returns>
         protected virtual GameObject CreateUIButton(string buttonName, Transform parent, UnityAction action)
         {
             var cellBuilder = new CellBuilder(buttonName);
@@ -79,8 +75,8 @@ namespace Donger.BuckeyeEngine{
             cellBuilderHandler += cellBuilder.ApplyLayoutElement;
 
             var button = new ButtonCellDongerUI(buttonName, action, cellBuilderHandler);
-
             var buttonCell = new CellUI(button);
+
             return buttonCell.Build();
         }
 	}

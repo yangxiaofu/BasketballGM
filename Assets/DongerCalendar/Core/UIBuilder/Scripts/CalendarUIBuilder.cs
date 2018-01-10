@@ -17,7 +17,7 @@ namespace Donger.BuckeyeEngine{
             if (!_calendar) Debug.LogError("You need to reference the calendar in " + this.gameObject.name);
 
             SetupParentTransform();
-
+            ClearCalendarUI();
             BuildCalendarUI(_calendar.SelectedDate, _preferredWidth);
         }
 
@@ -33,10 +33,7 @@ namespace Donger.BuckeyeEngine{
         ///<summary>Builds the Calendar UI in the game.</summary>
         protected virtual void BuildCalendarUI(Date date, float columnWidth)
         {
-            var day = date.Day; //TODO; update tehis as it's confusing the date that is referenced in teh preious script vs the date here. 
-
-            ClearCalendarUI();
-            
+            var day = date.Day; 
 			var daysInMonth = DateTime.DaysInMonth(date.Year, date.Month);
 
             GenerateMonthHeader(Calendar.Months[date.Month - 1], CreateUIRow("Row", _uiParentTransform).transform);
@@ -47,8 +44,8 @@ namespace Donger.BuckeyeEngine{
 			{
 				//Generate each row for the calendar.
             	var row = CreateUIRow("Row", _uiParentTransform);
-
-				var dayOfWeek = date.DayOfWeek;
+                var dateTime = new DateTime(date.Year, date.Month, day); //Used to separate teh date time fromt he previous reference.
+				var dayOfWeek = dateTime.DayOfWeek;
                 var dayOfWeekIndex = Calendar.GetDayOfWeekIndex(dayOfWeek);
 
 				//Draw the empty UI slots for days that don't exist.
@@ -72,23 +69,29 @@ namespace Donger.BuckeyeEngine{
 					}
 				}
 
-				if (day > daysInMonth) break;
+				if (day > daysInMonth) break; //When days are over, then break from this method.
 			}
         }
 
+        ///<summary>Builds UI the cell.  </summary>
+        ///<param name="cellName">The name of the cell.  </param>
+        ///<param name="parent">The parent the cell resides under.  </param>
         private void BuildCell(string cellName, Transform parent)
         {
             var cellBuilder = new CellBuilder(cellName);
             cellBuilder.SetFont(_font);
             cellBuilder.SetTextAnchor(TextAnchor.MiddleCenter);
             cellBuilder.SetLayoutElement(_preferredHeight, _preferredWidth);
-            cellBuilder.SetBackgroundImage(_uiBackground, 0f);
+
+            float opacity = 0f;
+            cellBuilder.SetBackgroundImage(_uiBackground, opacity);
             cellBuilder.SetParent(parent);
 
             DongerUI.CellBuilderHandler cellBuilderHandler = cellBuilder.ApplyFont;
+            cellBuilderHandler += cellBuilder.ApplyParent;
             cellBuilderHandler += cellBuilder.ApplyLayoutElement;
             cellBuilderHandler += cellBuilder.ApplyBackgroundImage;
-            cellBuilderHandler += cellBuilder.ApplyParent;
+
             var textCell = new TextCellDongerUI("", cellBuilderHandler);
             var cell = new CellUI(textCell);
             cell.Build();

@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.Assertions;
 
 namespace Donger.BuckeyeEngine{
+	///<summary>This is the main UI element for which all UI will be based on</summary>
 	public class UIElements : MonoBehaviour {
 		[SerializeField] Button _closeButton;
 

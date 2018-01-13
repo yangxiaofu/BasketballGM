@@ -23,10 +23,20 @@ namespace Donger.BuckeyeEngine{
 		[SerializeField] protected float _preferredHeight = 50f;
 		[Tooltip("This sets the priority.")]
 		[SerializeField] protected float _flexibleHeight = 1f;
-		
-		[Tooltip("This is the font.")]
+        [Tooltip("Opacity for each cell.")]
+        [SerializeField] protected float _opacity = 1f;
+        [Tooltip("This is the font.")]
 		[SerializeField] protected Font _font;
-		[SerializeField] protected Texture2D _uiBackground;
+		[SerializeField] protected Texture2D _hasActivitiesBackground;
+        [SerializeField] protected Texture2D _emptyBackground;
+
+        [Space]
+        [Header("Text Anchors")]
+        [Tooltip("Text Anchor for the title of the game.")]
+        [SerializeField] protected TextAnchor _titleTextAnchor = TextAnchor.MiddleLeft;
+        [Tooltip("Text Anchor for the days in the calendar.")]
+        [SerializeField] protected TextAnchor _daysTextAnchor = TextAnchor.MiddleLeft;
+		
 
 		///<summary>Setup the main calendar transforms</summary>
         protected virtual void SetupParentTransform()
@@ -65,7 +75,7 @@ namespace Donger.BuckeyeEngine{
         {
             var cellBuilder = new CellBuilder(buttonName);
             cellBuilder.SetFont(_font);
-            cellBuilder.SetBackgroundImage(_uiBackground, 0f);
+            cellBuilder.SetBackgroundImage(_hasActivitiesBackground, 0f);
             cellBuilder.SetLayoutElement(_preferredHeight, _preferredWidth);
             cellBuilder.SetParent(parent);
 
@@ -78,6 +88,31 @@ namespace Donger.BuckeyeEngine{
             var buttonCell = new CellUI(button);
 
             return buttonCell.Build();
+        }
+
+
+        ///<summary>Builds UI the cell.  </summary>
+        ///<param name="cellName">The name of the cell.  </param>
+        ///<param name="parent">The parent the cell resides under.  </param>
+        protected virtual void BuildCell(string cellName, Transform parent, Texture2D background, TextAnchor _textAnchor)
+        {
+            var cellBuilder = new CellBuilder(cellName);
+            cellBuilder.SetFont(_font);
+            cellBuilder.SetParent(parent);
+            cellBuilder.SetTextAnchor(_titleTextAnchor);
+            cellBuilder.SetLayoutElement(_preferredHeight, _preferredWidth);
+            cellBuilder.SetBackgroundImage(background, _opacity);
+            cellBuilder.SetAnchors(new Vector2(0, 0), new Vector2(1, 1));
+
+            DongerUI.CellBuilderHandler cellBuilderHandler = cellBuilder.ApplyFont;
+            cellBuilderHandler += cellBuilder.ApplyParent;
+            cellBuilderHandler += cellBuilder.ApplyAnchors;
+            cellBuilderHandler += cellBuilder.ApplyLayoutElement;
+            cellBuilderHandler += cellBuilder.ApplyBackgroundImage;
+
+            var textCell = new TextCellDongerUI(cellName, cellBuilderHandler);
+            var cell = new CellUI(textCell);
+            cell.Build();
         }
 	}
 

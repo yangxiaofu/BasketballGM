@@ -11,6 +11,32 @@ namespace Donger.BuckeyeEngine{
 			_cellName = cellName;
 		}
 
+	#region Anchors
+
+		private Vector2 _minAnchor;
+		private Vector2 _maxAnchor;
+
+		public void SetAnchors(Vector2 minAnchor, Vector2 maxAnchor)
+		{
+			_minAnchor = minAnchor;
+			_maxAnchor = maxAnchor;
+		}
+
+		public void ApplyAnchors(GameObject cell){
+			//If not Rect transform exists, then add it automatically.
+
+			if (!cell.GetComponent<RectTransform>())
+			{
+				cell.AddComponent<RectTransform>();
+			}
+			
+			var rt = cell.GetComponent<RectTransform>();
+			rt.anchorMin = _minAnchor;
+			rt.anchorMax = _maxAnchor;
+		}
+
+	#endregion
+
 	#region Font
 		private Font _font;
 		public void SetFont(Font font){
@@ -26,7 +52,8 @@ namespace Donger.BuckeyeEngine{
 		///<param name="cell">The cell UI gameobject to apply to layout element to</param>
 		public void ApplyFont(GameObject cell)
 		{
-			if (_font == null) Debug.LogError("You must set the font by using cellbuilder.Font first");
+			if (_font == null) 
+				Debug.LogError("You must set the font by using cellbuilder.Font first");
 
 			var textObject = new GameObject(_cellName);
             textObject.transform.SetParent(cell.transform, false);
@@ -59,7 +86,8 @@ namespace Donger.BuckeyeEngine{
 
 		Texture2D _backgroundImage;
 		float _opacity;
-		public void SetBackgroundImage(Texture2D backgroundImage, float opacity){
+		public void SetBackgroundImage(Texture2D backgroundImage, float opacity)
+		{
 			_backgroundImage = backgroundImage;
 			_opacity = opacity;
 		}
@@ -106,9 +134,11 @@ namespace Donger.BuckeyeEngine{
 			_parent = parent;
 		}
 
-		public void ApplyParent(GameObject cell){
-			 if (!_parent) Debug.LogError("You need to call SetParent Method first");
-			 
+		public void ApplyParent(GameObject cell)
+		{
+			 if (!_parent) 
+			 	Debug.LogError("You need to call SetParent Method first");
+
 			 cell.transform.SetParent(_parent, false);
 		}
 

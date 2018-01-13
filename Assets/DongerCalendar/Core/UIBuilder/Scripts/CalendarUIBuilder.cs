@@ -10,7 +10,6 @@ namespace Donger.BuckeyeEngine{
 	{
         [Header("Calendar UI Builder Specific")]
 		[SerializeField] Calendar _calendar;
-        
 		protected virtual void Start()
         {
             //Find the calendar component.
@@ -44,14 +43,16 @@ namespace Donger.BuckeyeEngine{
 			{
 				//Generate each row for the calendar.
             	var row = CreateUIRow("Row", _uiParentTransform);
-                var dateTime = new DateTime(date.Year, date.Month, day); //Used to separate teh date time fromt he previous reference.
+
+                //Used to separate teh date time fromt he previous reference.
+                var dateTime = new DateTime(date.Year, date.Month, day); 
 				var dayOfWeek = dateTime.DayOfWeek;
                 var dayOfWeekIndex = Calendar.GetDayOfWeekIndex(dayOfWeek);
 
 				//Draw the empty UI slots for days that don't exist.
 				for (int i = 0; i < dayOfWeekIndex; i++)
                 {
-                    BuildCell("Empty", row.transform);
+                    BuildCell("Empty", row.transform, _emptyBackground, _daysTextAnchor);
                 }
 
                 //Draw the actual UI days
@@ -60,41 +61,17 @@ namespace Donger.BuckeyeEngine{
                     //If days exist, then continue to draw the cell.
 					if (day <= daysInMonth)
                     {
-                        BuildCell(day.ToString(), row.transform);
+                        BuildCell(day.ToString(), row.transform, _hasActivitiesBackground, _daysTextAnchor);
 						day++;
 					} 
                     //Otherwise, draw the blank days at teh end of the month, then break when it's over.
                     else {
-                        BuildCell("Empty", row.transform);
+                        BuildCell("Empty", row.transform, _emptyBackground, _daysTextAnchor);
 					}
 				}
 
 				if (day > daysInMonth) break; //When days are over, then break from this method.
 			}
-        }
-
-        ///<summary>Builds UI the cell.  </summary>
-        ///<param name="cellName">The name of the cell.  </param>
-        ///<param name="parent">The parent the cell resides under.  </param>
-        private void BuildCell(string cellName, Transform parent)
-        {
-            var cellBuilder = new CellBuilder(cellName);
-            cellBuilder.SetFont(_font);
-            cellBuilder.SetTextAnchor(TextAnchor.MiddleCenter);
-            cellBuilder.SetLayoutElement(_preferredHeight, _preferredWidth);
-
-            float opacity = 0f;
-            cellBuilder.SetBackgroundImage(_uiBackground, opacity);
-            cellBuilder.SetParent(parent);
-
-            DongerUI.CellBuilderHandler cellBuilderHandler = cellBuilder.ApplyFont;
-            cellBuilderHandler += cellBuilder.ApplyParent;
-            cellBuilderHandler += cellBuilder.ApplyLayoutElement;
-            cellBuilderHandler += cellBuilder.ApplyBackgroundImage;
-
-            var textCell = new TextCellDongerUI("", cellBuilderHandler);
-            var cell = new CellUI(textCell);
-            cell.Build();
         }
 
         ///<summary>Back a month</summary>
@@ -113,9 +90,7 @@ namespace Donger.BuckeyeEngine{
             BuildCalendarUI(_calendar.SelectedDate, _preferredWidth);
         }
 
-
         ///<summary>This will have the month information and buttons that you can use to scroll in different direction</summary>
-        //TODO: Make it so that it has arrows that point in the direction of the arrows.
         private void GenerateMonthHeader(string monthName, Transform parent)
         {
             var row = CreateUIRow("Row", parent);
@@ -123,7 +98,7 @@ namespace Donger.BuckeyeEngine{
             //Generate the back button. 
             CreateUIButton("Back", row.transform, BackAMonth);
             
-            BuildCell(monthName, parent);
+            BuildCell(monthName, row.transform, _emptyBackground, _titleTextAnchor);
 
             //This generates the forward month button. 
             CreateUIButton("Forward", row.transform, ForwardAMonth);
@@ -136,7 +111,7 @@ namespace Donger.BuckeyeEngine{
 
             for (int i = 0; i < Calendar.DaysInWeek.Length; i++)
             {
-                BuildCell(Calendar.DaysInWeek[i].ToString(), row.transform);
+                BuildCell(Calendar.DaysInWeek[i].ToString(), row.transform, _hasActivitiesBackground, _daysTextAnchor);
             }
         }
 

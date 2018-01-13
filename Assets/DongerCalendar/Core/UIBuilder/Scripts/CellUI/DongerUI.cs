@@ -7,8 +7,8 @@ namespace Donger.BuckeyeEngine{
 	public class DongerUI{
 
 		protected string _cellName;
-		///<summary>Updates the opacity of the background image</summary>
 
+		///<summary>Updates the opacity of the background image</summary>
 		protected GameObject _cell;
 
         public delegate void CellBuilderHandler(GameObject cell);
@@ -18,9 +18,10 @@ namespace Donger.BuckeyeEngine{
 		protected virtual void CreateUIGameObject()
         {
             _cell = new GameObject(_cellName);
-            _cell.AddComponent<RectTransform>();
+            var rectTransform = _cell.AddComponent<RectTransform>();
+			rectTransform.anchorMin = new Vector2(0, 0);
+			rectTransform.anchorMax = new Vector2(1, 1);
         }
-
 	}
 }
 

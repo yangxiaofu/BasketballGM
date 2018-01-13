@@ -176,10 +176,10 @@ RectTransform:
   m_Father: {fileID: 433390821}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1248, y: 715}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &251273951
 MonoBehaviour:
@@ -516,10 +516,15 @@ MonoBehaviour:
   _uiParentTransform: {fileID: 964766730}
   _spacing: 10
   _preferredWidth: 100
-  _preferredHeight: 50
+  _preferredHeight: 100
   _flexibleHeight: 1
+  _titleTextAnchor: 4
+  _daysTextAnchor: 3
+  _opacity: 1
   _font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-  _uiBackground: {fileID: 2800000, guid: 42eedb32ef2f2495fa4db377e892d794, type: 3}
+  _hasActivitiesBackground: {fileID: 2800000, guid: 42eedb32ef2f2495fa4db377e892d794,
+    type: 3}
+  _emptyBackground: {fileID: 2800000, guid: c6467be3f7b224bd48dcc74afd7677c9, type: 3}
   _calendar: {fileID: 987291742}
 --- !u!114 &987291742 stripped
 MonoBehaviour:

@@ -1,7 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 namespace Donger.BuckeyeEngine{
 	public class CellBuilder{
@@ -10,6 +12,22 @@ namespace Donger.BuckeyeEngine{
 		{
 			_cellName = cellName;
 		}
+
+	#region Unity Action
+
+		private UnityAction _action;
+		public void SetAction(UnityAction action){
+			_action = action;
+		}
+		///<summary> Applys the button action in the game</summary>
+		public void ApplyAction(GameObject cell)
+		{
+			if (_action == null) Debug.LogError("You must call the SetAction Method first in order to run this method");
+			var button = cell.AddComponent<Button>();
+			button.onClick.AddListener(_action);
+		}
+
+	#endregion
 
 	#region Anchors
 

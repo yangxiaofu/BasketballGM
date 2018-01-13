@@ -69,10 +69,13 @@
      <Compile Include="Assets\DongerCalendar\Core\UIBuilder\Scripts\CellUI\ButtonCellDongerUI.cs" />
      <Compile Include="Assets\DongerCalendar\Core\UIBuilder\Scripts\CellUI\CellBuilder.cs" />
      <Compile Include="Assets\DongerCalendar\Core\UIBuilder\Scripts\CellUI\CellUI.cs" />
+     <Compile Include="Assets\DongerCalendar\Core\UIBuilder\Scripts\CellUI\CellUIBehaviour.cs" />
      <Compile Include="Assets\DongerCalendar\Core\UIBuilder\Scripts\CellUI\DongerUI.cs" />
      <Compile Include="Assets\DongerCalendar\Core\UIBuilder\Scripts\CellUI\RowCellDongerUI.cs" />
      <Compile Include="Assets\DongerCalendar\Core\UIBuilder\Scripts\CellUI\TextCellDongerUI.cs" />
+     <Compile Include="Assets\DongerCalendar\Core\UIBuilder\Scripts\PrimaryUI.cs" />
      <Compile Include="Assets\DongerCalendar\Core\UIBuilder\Scripts\UIBuilder.cs" />
+     <Compile Include="Assets\DongerCalendar\Core\UIBuilder\Scripts\UIElements.cs" />
      <Compile Include="Assets\DongerCalendar\Tools\GenerateID.cs" />
      <None Include="Assets\DongerCalendar\Documentation\CalendarDesign.txt" />
      <None Include="Assets\DongerCalendar\Documentation\readme.txt" />

@@ -18,6 +18,8 @@ namespace Donger.BuckeyeEngine{
             SetupParentTransform();
             ClearCalendarUI();
             BuildCalendarUI(_calendar.SelectedDate, _preferredWidth);
+
+            _onDayClickPopUpUI.SetActive(false);
         }
 
         ///<summary>This clears the calendar UI parent transform and prepares it to be buitlt again</summary>
@@ -61,7 +63,11 @@ namespace Donger.BuckeyeEngine{
                     //If days exist, then continue to draw the cell.
 					if (day <= daysInMonth)
                     {
-                        BuildCell(day.ToString(), row.transform, _hasActivitiesBackground, _daysTextAnchor);
+                        //Buidls the cell with a button attached to it.
+                        var cell = BuildCell(day.ToString(), row.transform, _hasActivitiesBackground, _daysTextAnchor);
+                        var behaviour = cell.AddComponent<CellUIBehaviour>();
+                        behaviour.Setup(this);
+                        behaviour.DateTime = new DateTime(date.Year, date.Month, day);
 						day++;
 					} 
                     //Otherwise, draw the blank days at teh end of the month, then break when it's over.

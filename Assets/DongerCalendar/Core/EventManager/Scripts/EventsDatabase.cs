@@ -19,12 +19,12 @@ namespace Donger.BuckeyeEngine{
 			return "This is meant to display the events on the selected day.  You can find the events for the day after selecting a day.";
 		}
 
-		[SerializeField] List<CoreEvent> _events = new List<CoreEvent>();
+		[SerializeField] List<ICoreEvent> _events = new List<ICoreEvent>();
 		
 		///<summary>This list of Core Events</summary>
-		public List<CoreEvent> Events{get{return _events;}}
+		public List<ICoreEvent> Events{get{return _events;}}
 
-		public void Add(CoreEvent coreEvent)
+		public void Add(ICoreEvent coreEvent)
 		{
 			_events.Add(coreEvent);
 		}
@@ -35,9 +35,9 @@ namespace Donger.BuckeyeEngine{
 		}
 
 		///<summary>Gets the events on this particular date</summary>
-		public List<CoreEvent> Find(DateTime date)
+		public List<ICoreEvent> Find(DateTime date)
 		{
-			List<CoreEvent> events = new List<CoreEvent>();
+			List<ICoreEvent> events = new List<ICoreEvent>();
 
 			for(int i = 0; i < _events.Count; i++)
 			{

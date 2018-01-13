@@ -5,14 +5,12 @@ using UnityEngine;
 
 namespace Donger.BuckeyeEngine{
 	public interface ICoreEvent {
-		void AddComponentTo(GameObject gameObjectTotAddTo);
+		string Name {get;set;}
 		string ID{get;}
-		DateTime Date{get;set;}
-		int Day{get;set;}
-		int Month{get;set;}
 		int Year{get;set;}
-		string Name{get;set;}
-
+		int Month{get;set;}
+		int Day {get;set;}
+		void AddComponentTo(GameObject gameObjectToAddTo);
 	}
 }
 

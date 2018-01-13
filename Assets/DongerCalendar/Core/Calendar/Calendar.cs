@@ -44,13 +44,6 @@ namespace Donger.BuckeyeEngine{
 			if (Application.isPlaying)
 			{
 				SelectedDate = new Date(StartingYear, StartingMonth, StartingDay);
-			}
-		}
-
-		protected virtual void Start()
-		{
-			if (Application.isPlaying)
-			{
 				_eventManager = GetComponent<EventManager>();
 			}
 		}

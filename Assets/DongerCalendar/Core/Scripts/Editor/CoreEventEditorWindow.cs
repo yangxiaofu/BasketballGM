@@ -7,8 +7,8 @@ namespace Donger.BuckeyeEngine{
 	public class CoreEventEditorWindow : EditorWindow {
 		EventManager _eventManager;
 		EventManagerEditor _eventManagerEditor;
-		CoreEvent _coreEvent;
-		public void Setup(EventManagerEditor eventManagerEditor, EventManager eventManager, CoreEvent coreEvent)
+		ICoreEvent _coreEvent;
+		public void Setup(EventManagerEditor eventManagerEditor, EventManager eventManager, ICoreEvent coreEvent)
 		{
 			_coreEvent = coreEvent;
 			_eventManager = eventManager;

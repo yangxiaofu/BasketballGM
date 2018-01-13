@@ -63,10 +63,22 @@ namespace Donger.BuckeyeEngine{
                     //If days exist, then continue to draw the cell.
 					if (day <= daysInMonth)
                     {
-                        //Buidls the cell with a button attached to it.
-                        var cell = BuildCell(day.ToString(), row.transform, _hasActivitiesBackground, _daysTextAnchor);
+                        //Builds the cell with a button attached to it.  If an event exists on the day, the background of the day will appear differently.
+
+                        var dateForUI = new DateTime(date.Year, date.Month, day);
+                        Texture2D background = _emptyBackground;
+                        var coreEvents = _calendar.EventManager.GetEvents(dateForUI);
+
+                        if (coreEvents.Count > 0)
+                            background = _hasActivitiesBackground;
+                        
+                        //Build the cell.
+                        var cell = BuildCell(day.ToString(), row.transform, background, _daysTextAnchor);
                         var behaviour = cell.AddComponent<CellUIBehaviour>();
+                        
                         behaviour.Setup(this);
+                        behaviour.CoreEvents = coreEvents;
+
                         behaviour.DateTime = new DateTime(date.Year, date.Month, day);
 						day++;
 					} 

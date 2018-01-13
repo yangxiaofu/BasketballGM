@@ -30,7 +30,7 @@ namespace Donger.BuckeyeEngine{
 		
 		protected Calendar _calendar;
 		protected const string EVENTS = "Events";
-		public List<CoreEvent> CoreEvents = new List<CoreEvent>();
+		public List<ICoreEvent> CoreEvents = new List<ICoreEvent>();
 
 		public string HelpBox()
 		{
@@ -55,6 +55,9 @@ namespace Donger.BuckeyeEngine{
 			{
 				//If parent for events is null, then create it.
 				if (!_parentForEvents) _parentForEvents = new GameObject(EVENTS).transform;
+
+				_calendar = GetComponent<Calendar>();
+				_calendar.OnUpdated += OnCalendarUpdated;
 			}
 		}
 
@@ -74,7 +77,7 @@ namespace Donger.BuckeyeEngine{
             {
                 var eventObject = new GameObject(CoreEvents[i].Name);
                 CoreEvents[i].AddComponentTo(eventObject);
-                CoreEvents[i].InitializeGameObject();
+                (CoreEvents[i] as CoreEvent).InitializeGameObject();
                 eventObject.transform.SetParent(_parentForEvents);
                 eventObject.transform.localPosition = Vector3.zero;
             }
@@ -132,7 +135,7 @@ namespace Donger.BuckeyeEngine{
 		}
 
 		///<summary>Get number of events from this date.</summary>
-		public virtual List<CoreEvent> GetEvents(DateTime date)
+		public virtual List<ICoreEvent> GetEvents(DateTime date)
 		{
 			return _database.Find(date);
 		}

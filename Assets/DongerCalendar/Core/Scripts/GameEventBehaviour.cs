@@ -8,8 +8,6 @@ namespace Donger.BuckeyeEngine{
         {
             print("Simulate the event");
         }
-
-      
 	}
 }
 

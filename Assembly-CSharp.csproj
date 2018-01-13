@@ -61,7 +61,7 @@
      <Compile Include="Assets\DongerCalendar\Core\Scripts\EventType.cs" />
      <Compile Include="Assets\DongerCalendar\Core\Scripts\GameCoreEvent.cs" />
      <Compile Include="Assets\DongerCalendar\Core\Scripts\GameEventBehaviour.cs" />
-     <Compile Include="Assets\DongerCalendar\Core\Scripts\ICoreEvents.cs" />
+     <Compile Include="Assets\DongerCalendar\Core\Scripts\ICoreEvent.cs" />
      <Compile Include="Assets\DongerCalendar\Core\Scripts\PracticeCoreEvent.cs" />
      <Compile Include="Assets\DongerCalendar\Core\Scripts\PracticeEventBehaviour.cs" />
      <Compile Include="Assets\DongerCalendar\Core\Scripts\Vector3ExtensionMethod.cs" />
@@ -80,9 +80,8 @@
      <None Include="Assets\DongerCalendar\Core\UIBuilder\Scripts\CellUI\readme.txt" />
      <None Include="Assets\DongerCalendar\Documentation\CalendarDesign.txt" />
      <None Include="Assets\DongerCalendar\Documentation\readme.txt" />
-     <None Include="Assets\Documentation\readme.txt" />
+     <None Include="Assets\_SimEngine\Documentation\readme.txt" />
      <None Include="Assets\DongerCalendar\Documentation\GameDesignDocument.txt" />
-     <None Include="Assets\Documentation\Documentation.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

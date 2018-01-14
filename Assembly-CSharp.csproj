@@ -51,6 +51,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\_SimEngine\TeamGenerator\Team.cs" />
+     <Compile Include="Assets\_SimEngine\TeamGenerator\TeamGenerator.cs" />
+     <Compile Include="Assets\_SimEngine\Utility\TeamFileReader.cs" />
      <Compile Include="Assets\DongerCalendar\Core\Calendar\Calendar.cs" />
      <Compile Include="Assets\DongerCalendar\Core\EventManager\Scripts\EventManager.cs" />
      <Compile Include="Assets\DongerCalendar\Core\EventManager\Scripts\EventsDatabase.cs" />
@@ -77,11 +80,14 @@
      <Compile Include="Assets\DongerCalendar\Core\UIBuilder\Scripts\UIElements\PrimaryUI.cs" />
      <Compile Include="Assets\DongerCalendar\Core\UIBuilder\Scripts\UIElements\UIElements.cs" />
      <Compile Include="Assets\DongerCalendar\Tools\GenerateID.cs" />
+     <Compile Include="Assets\FileReader\FileReader.cs" />
      <None Include="Assets\DongerCalendar\Core\UIBuilder\Scripts\CellUI\readme.txt" />
      <None Include="Assets\DongerCalendar\Documentation\CalendarDesign.txt" />
      <None Include="Assets\DongerCalendar\Documentation\readme.txt" />
      <None Include="Assets\_SimEngine\Documentation\readme.txt" />
      <None Include="Assets\DongerCalendar\Documentation\GameDesignDocument.txt" />
+     <None Include="Assets\_SimEngine\TeamGenerator\readme.txt" />
+     <None Include="Assets\FileReader\readme.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

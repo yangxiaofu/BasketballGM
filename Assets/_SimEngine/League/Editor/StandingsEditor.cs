@@ -41,7 +41,6 @@ namespace Donger.BuckeyeEngine{
 			else {
 				EditorGUILayout.HelpBox("Draws Standings at run-time", MessageType.Info);
 			}
-		
         }
 
         private void DrawConferenceStandings(string conferenceName)
@@ -51,6 +50,7 @@ namespace Donger.BuckeyeEngine{
 			EditorGUILayout.LabelField(conferenceName, EditorStyles.boldLabel, GUILayout.Width(200f));
 			EditorGUILayout.LabelField("Wins", GUILayout.Width(width));
 			EditorGUILayout.LabelField("Losses", GUILayout.Width(width));
+			EditorGUILayout.LabelField("Ties", GUILayout.Width(width));
 			EditorGUILayout.EndHorizontal();
 
             var conference = _standings.Conferences.Find(a => a.Name == conferenceName); //TODO: Make this more automatic
@@ -58,8 +58,9 @@ namespace Donger.BuckeyeEngine{
             {
 				EditorGUILayout.BeginHorizontal();
                 EditorGUILayout.LabelField(conference.Teams[i].CityName + " " + conference.Teams[i].NickName, GUILayout.Width(200f));
-				EditorGUILayout.LabelField("0", GUILayout.Width(width));
-				EditorGUILayout.LabelField("0", GUILayout.Width(width));
+				EditorGUILayout.LabelField(conference.Teams[i].Record.Wins.ToString(), GUILayout.Width(width));
+				EditorGUILayout.LabelField(conference.Teams[i].Record.Losses.ToString(), GUILayout.Width(width));
+				EditorGUILayout.LabelField(conference.Teams[i].Record.Ties.ToString(), GUILayout.Width(width));
 				EditorGUILayout.EndHorizontal();
 
             }

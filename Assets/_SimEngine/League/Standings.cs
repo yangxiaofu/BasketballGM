@@ -8,8 +8,9 @@ namespace Donger.BuckeyeEngine
 {
 	[RequireComponent(typeof(League))]
 	public class Standings : MonoBehaviour {
-		[SerializeField] protected List<Team> _teams = new List<Team>();
-		[SerializeField] protected List<Conference> _conferences = new List<Conference>();
+		protected List<Team> _teams = new List<Team>();
+		protected List<Conference> _conferences = new List<Conference>();
+		public List<Conference> Conferences{get{return _conferences;}}
 		protected League _league;
 
 		protected virtual void Start()

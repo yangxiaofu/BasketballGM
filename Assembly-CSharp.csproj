@@ -56,6 +56,7 @@
      <Compile Include="Assets\_SimEngine\League\Conference.cs" />
      <Compile Include="Assets\_SimEngine\League\League.cs" />
      <Compile Include="Assets\_SimEngine\League\LeagueGenerator.cs" />
+     <Compile Include="Assets\_SimEngine\League\Record.cs" />
      <Compile Include="Assets\_SimEngine\League\Standings.cs" />
      <Compile Include="Assets\_SimEngine\TeamGenerator\Team.cs" />
      <Compile Include="Assets\_SimEngine\TeamGenerator\TeamGenerator.cs" />

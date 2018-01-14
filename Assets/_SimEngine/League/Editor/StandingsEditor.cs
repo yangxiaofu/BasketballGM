@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System.Linq;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
@@ -17,12 +18,52 @@ namespace Donger.BuckeyeEngine{
 		}
 
 		public override void OnInspectorGUI()
-		{
-			EditorGUILayout.HelpBox("If there are any chances to the team configurations, then you need to refresh the team in the TeamFileReader ", MessageType.Info);
-			EditorGUILayout.Space();
+        {
+            EditorGUILayout.HelpBox("If there are any chances to the team configurations, then you need to refresh the team in the TeamFileReader ", MessageType.Info);
+            EditorGUILayout.Space();
+
+            DrawDefaultInspector();
+
+            EditorGUILayout.Space();
+            EditorGUILayout.LabelField("Standings", EditorStyles.boldLabel);
+            EditorGUILayout.Space();
 			
-			DrawDefaultInspector();
-		}
-	}
+			//If the application is in PlayMode
+			if (Application.isPlaying)
+			{
+				//Draw East Team Standings
+				DrawConferenceStandings("East");
+				EditorGUILayout.Space();
+				//Draw West Team Standings
+				DrawConferenceStandings("West");
+			} 
+			//otherwise, just let the user know that it only compiles at run-time.
+			else {
+				EditorGUILayout.HelpBox("Draws Standings at run-time", MessageType.Info);
+			}
+		
+        }
+
+        private void DrawConferenceStandings(string conferenceName)
+        {
+			float width = 50f;
+			EditorGUILayout.BeginHorizontal();
+			EditorGUILayout.LabelField(conferenceName, EditorStyles.boldLabel, GUILayout.Width(200f));
+			EditorGUILayout.LabelField("Wins", GUILayout.Width(width));
+			EditorGUILayout.LabelField("Losses", GUILayout.Width(width));
+			EditorGUILayout.EndHorizontal();
+
+            var conference = _standings.Conferences.Find(a => a.Name == conferenceName); //TODO: Make this more automatic
+            for (int i = 0; i < conference.Teams.Count; i++)
+            {
+				EditorGUILayout.BeginHorizontal();
+                EditorGUILayout.LabelField(conference.Teams[i].CityName + " " + conference.Teams[i].NickName, GUILayout.Width(200f));
+				EditorGUILayout.LabelField("0", GUILayout.Width(width));
+				EditorGUILayout.LabelField("0", GUILayout.Width(width));
+				EditorGUILayout.EndHorizontal();
+
+            }
+        }
+    }
 }
 

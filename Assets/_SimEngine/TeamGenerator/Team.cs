@@ -11,6 +11,8 @@ namespace Donger.BuckeyeEngine{
 		public string CityName;
 		public string NickName;
 		public string Conference;
+
+		[SerializeField] public Record Record;
 		public Team(string cityName, string nickName)
 		{
 			CityName = cityName;

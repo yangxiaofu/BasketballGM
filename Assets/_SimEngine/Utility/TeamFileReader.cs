@@ -22,6 +22,7 @@ namespace Donger.BuckeyeEngine{
 			{
 				string[] lineData = ((lines[i].Trim()).Split(","[0]));
 				var team = new Team(lineData[0], lineData[1]);
+				team.Conference = lineData[2];
 				_teamsDatabase.Teams.Add(team);
 			}
 		}

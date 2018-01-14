@@ -10,6 +10,7 @@ namespace Donger.BuckeyeEngine{
 		public string ID{get{return _id;}}
 		public string CityName;
 		public string NickName;
+		public string Conference;
 		public Team(string cityName, string nickName)
 		{
 			CityName = cityName;

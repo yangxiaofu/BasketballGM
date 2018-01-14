@@ -53,6 +53,10 @@
   <ItemGroup>
      <Compile Include="Assets\_SimEngine\Core\GameManager.cs" />
      <Compile Include="Assets\_SimEngine\Databases\TeamsDatabase.cs" />
+     <Compile Include="Assets\_SimEngine\League\Conference.cs" />
+     <Compile Include="Assets\_SimEngine\League\League.cs" />
+     <Compile Include="Assets\_SimEngine\League\LeagueGenerator.cs" />
+     <Compile Include="Assets\_SimEngine\League\Standings.cs" />
      <Compile Include="Assets\_SimEngine\TeamGenerator\Team.cs" />
      <Compile Include="Assets\_SimEngine\TeamGenerator\TeamGenerator.cs" />
      <Compile Include="Assets\_SimEngine\Utility\TeamFileReader.cs" />

@@ -9,7 +9,7 @@ namespace Donger.BuckeyeEngine{
 
 		void Start(){
 			Assert.IsNotNull(TeamsDatabase, "You must have the teams database referenced in " + this.gameObject.name);
-			///	
+			
 		}
 	}
 }

@@ -3,7 +3,11 @@ Onion Layers (From Core to outside layers)
         UI Basics
     Teams 
         Build a Teams Generator
-        
+        Create a small sample league of 4 teams.
+            Create Standings
+        Create small sample season of 6 games.
+        Randomize Wins and losses and score.
+
         
     Game Simulations with fake players
     Players

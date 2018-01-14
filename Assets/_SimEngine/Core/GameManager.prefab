@@ -9,48 +9,46 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1773159091180758}
+  m_RootGameObject: {fileID: 1300736900842370}
   m_IsPrefabParent: 1
---- !u!1 &1773159091180758
+--- !u!1 &1300736900842370
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4870731145645814}
-  - component: {fileID: 114318581561047534}
+  - component: {fileID: 4923667167583812}
+  - component: {fileID: 114819174321823144}
   m_Layer: 0
-  m_Name: TeamFileReader
+  m_Name: GameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4870731145645814
+--- !u!4 &4923667167583812
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1773159091180758}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_GameObject: {fileID: 1300736900842370}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114318581561047534
+--- !u!114 &114819174321823144
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1773159091180758}
+  m_GameObject: {fileID: 1300736900842370}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f393e755e578547b9b1585d12ca5bc83, type: 3}
+  m_Script: {fileID: 11500000, guid: 2a0918e4581054ca2a4b8af3aedfe616, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fileName: TeamNames.csv
-  path: Assets/Resources/
-  _teamsDatabase: {fileID: 11400000, guid: 35ff9aed052c74c50a981c0321b73292, type: 2}
+  TeamsDatabase: {fileID: 11400000, guid: 35ff9aed052c74c50a981c0321b73292, type: 2}

@@ -58,6 +58,10 @@
      <Compile Include="Assets\_SimEngine\League\LeagueGenerator.cs" />
      <Compile Include="Assets\_SimEngine\League\Record.cs" />
      <Compile Include="Assets\_SimEngine\League\Standings.cs" />
+     <Compile Include="Assets\_SimEngine\Simulator\BasketballSimulator.cs" />
+     <Compile Include="Assets\_SimEngine\Simulator\ISimulator.cs" />
+     <Compile Include="Assets\_SimEngine\Simulator\Results.cs" />
+     <Compile Include="Assets\_SimEngine\Simulator\Simulator.cs" />
      <Compile Include="Assets\_SimEngine\TeamGenerator\Team.cs" />
      <Compile Include="Assets\_SimEngine\TeamGenerator\TeamGenerator.cs" />
      <Compile Include="Assets\_SimEngine\Utility\TeamFileReader.cs" />
@@ -74,9 +78,6 @@
      <Compile Include="Assets\DongerCalendar\Core\Scripts\ICoreEvent.cs" />
      <Compile Include="Assets\DongerCalendar\Core\Scripts\PracticeCoreEvent.cs" />
      <Compile Include="Assets\DongerCalendar\Core\Scripts\PracticeEventBehaviour.cs" />
-     <Compile Include="Assets\DongerCalendar\Core\Scripts\Simulator\BasketballSimulator.cs" />
-     <Compile Include="Assets\DongerCalendar\Core\Scripts\Simulator\ISimulator.cs" />
-     <Compile Include="Assets\DongerCalendar\Core\Scripts\Simulator\Simulator.cs" />
      <Compile Include="Assets\DongerCalendar\Core\Scripts\TeamBehaviour.cs" />
      <Compile Include="Assets\DongerCalendar\Core\Scripts\Vector3ExtensionMethod.cs" />
      <Compile Include="Assets\DongerCalendar\Core\UIBuilder\Scripts\CellUI\ButtonCellDongerUI.cs" />
@@ -95,6 +96,7 @@
      <None Include="Assets\DongerCalendar\Core\UIBuilder\Scripts\CellUI\readme.txt" />
      <None Include="Assets\DongerCalendar\Documentation\CalendarDesign.txt" />
      <None Include="Assets\DongerCalendar\Documentation\readme.txt" />
+     <None Include="Assets\_SimEngine\Simulator\readme.txt" />
      <None Include="Assets\_SimEngine\Documentation\readme.txt" />
      <None Include="Assets\DongerCalendar\Documentation\GameDesignDocument.txt" />
      <None Include="Assets\_SimEngine\TeamGenerator\readme.txt" />

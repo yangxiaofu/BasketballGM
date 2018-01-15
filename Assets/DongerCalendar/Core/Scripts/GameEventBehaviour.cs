@@ -42,10 +42,30 @@ namespace Donger.BuckeyeEngine{
             return team;
         }
 
+        ///<summary>Simulates the simulator.  </summary>
         public override void Simulate()
         {
-            _simulator.Simulate();
+            _simulator.Simulate();            
+
+            //update team records
+            UpdateTeamRecords();
         }
-	}
+
+        ///<summary>Update the records for each team.</summary>
+        protected virtual void UpdateTeamRecords()
+        {
+            var results = _simulator.Results;
+            //If the home team is the winner.
+            if (results.Winner == _homeTeam){
+                _homeTeam.Record.Wins += 1;
+                _awayTeam.Record.Losses += 1;
+            }
+            //otherwise, the home team is the loser.
+            else {
+                _homeTeam.Record.Losses += 1;
+                _awayTeam.Record.Wins += 1;
+            }
+        }
+    }
 }
 

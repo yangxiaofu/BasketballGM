@@ -1,0 +1,2 @@
+The Simulator is an interface which is designed to be extensible so I can create any type of simulator that I want to.  
+Just create a simulator for the sport and make it an ISimulator interface to get started. 

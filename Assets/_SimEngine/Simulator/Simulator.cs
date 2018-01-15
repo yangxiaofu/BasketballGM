@@ -6,9 +6,11 @@ using UnityEngine.Assertions;
 namespace Donger.BuckeyeEngine{
 	public class Simulator  {
 
-		ISimulator _simulator;
+		private readonly ISimulator _simulator;
+		public Results Results{ get{return _simulator.Results;} }
 		
-		public Simulator (ISimulator simulator){
+		public Simulator (ISimulator simulator)
+		{
 			_simulator = simulator;
 		}
 

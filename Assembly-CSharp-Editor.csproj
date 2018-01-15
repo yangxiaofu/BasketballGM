@@ -58,8 +58,8 @@
      <Compile Include="Assets\DongerCalendar\Core\Calendar\Editor\ListEditorWindow.cs" />
      <Compile Include="Assets\DongerCalendar\Core\Calendar\Editor\MonthListEditorWindow.cs" />
      <Compile Include="Assets\DongerCalendar\Core\Calendar\Editor\YearListEditorWindow.cs" />
-     <Compile Include="Assets\DongerCalendar\Core\EventManager\Editor\EventManagerEditor.cs" />
-     <Compile Include="Assets\DongerCalendar\Core\EventManager\Editor\EventsDatabaseEditor.cs" />
+     <Compile Include="Assets\DongerCalendar\Core\EventManager\Scripts\Editor\EventManagerEditor.cs" />
+     <Compile Include="Assets\DongerCalendar\Core\EventManager\Scripts\Editor\EventsDatabaseEditor.cs" />
      <Compile Include="Assets\DongerCalendar\Core\Scripts\Editor\CoreEventEditorWindow.cs" />
      <Compile Include="Assets\DongerCalendar\Core\Scripts\Editor\DateParserTests.cs" />
      <Compile Include="Assets\DongerCalendar\Core\Scripts\Editor\GameEventBehaviourEditor.cs" />

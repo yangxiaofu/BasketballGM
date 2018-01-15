@@ -10,8 +10,8 @@ namespace Donger.BuckeyeEngine{
 		public override void OnInspectorGUI()
 		{
 			serializedObject.Update();
-			EditorUtility.SetDirty((EventsDatabase)target);
 			DrawDefaultInspector();
+			EditorUtility.SetDirty((EventsDatabase)target);
 			serializedObject.ApplyModifiedProperties();
 		}
 	}

@@ -8,14 +8,11 @@ namespace Donger.BuckeyeEngine{
 	[CustomEditor(typeof(EventManager))]
 	public class EventManagerEditor : Editor{
 		EventManager _eventManager;
-		string _path;
 		CoreEventEditorWindow _coreEventEditorWindow;
 		public bool CoreEventEditorWindowOpen = false;
-
 		protected virtual void OnEnable()
 		{
 			_eventManager = (EventManager)target;
-			_path = "Assets/DongerCalendar/Core/GUISkin/GUISkin.guiskin";
 		}
 		public override void OnInspectorGUI(){
 

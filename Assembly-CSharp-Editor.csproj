@@ -62,6 +62,7 @@
      <Compile Include="Assets\DongerCalendar\Core\EventManager\Editor\EventsDatabaseEditor.cs" />
      <Compile Include="Assets\DongerCalendar\Core\Scripts\Editor\CoreEventEditorWindow.cs" />
      <Compile Include="Assets\DongerCalendar\Core\Scripts\Editor\DateParserTests.cs" />
+     <Compile Include="Assets\DongerCalendar\Core\Scripts\Editor\GameEventBehaviourEditor.cs" />
      <Compile Include="Assets\DongerCalendar\Core\UIBuilder\Editor\CalendarUIBuilderEditor.cs" />
      <Compile Include="Assets\FileReader\Editor\FileReaderEditor.cs" />
  <Reference Include="UnityEngine.UI">

@@ -5,6 +5,7 @@ using UnityEngine;
 using Donger.Tools;
 
 namespace Donger.BuckeyeEngine{
+	[System.Serializable]
     public class PracticeCoreEvent : CoreEvent, ICoreEvent
     {
 		public string Name{ 

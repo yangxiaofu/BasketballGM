@@ -116,7 +116,8 @@ namespace Donger.BuckeyeEngine{
                 case EventType.Game:
 					for (int i = 0; i < _numberOfEventsToGenerate; i++)
             		{
-						var coreEvent = new GameCoreEvent("Game", beginDate.Date);
+						//TODO: automatically get the names of the teams.
+						var coreEvent = new GameCoreEvent("Game", beginDate.Date, "Cavs", "Pelicans");
 						_database.Add(coreEvent);
             		}
                     break;

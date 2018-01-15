@@ -5,11 +5,13 @@ Onion Layers (From Core to outside layers)
         Build a Teams Generator (done) completed 1/14/2017
         Create a small sample league of 4 teams. 1/14/2017
             Create Standings 1/14/2017
-        Find a way to simulate two fake teams against one another.
+        Find a way to simulate two fake teams against one another.1/14/2017
+        Randomize Wins and losses and score. 1/14/2017
+        Find a way to generate a season.  This will probably be a custom inspector of some sort that is tied to teh event manager.  
         Create small sample season of 6 games.
-        Randomize Wins and losses and score.
-        
-    Game Simulations with fake players
+
+    Add Fake Players in the game.
+    Add Fake Stats in the game.
     Players
     Team Management
         Personnel Moves

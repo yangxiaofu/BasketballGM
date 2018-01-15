@@ -21,7 +21,8 @@ namespace Donger.BuckeyeEngine{
             _awayTeam = SetupTeam(_awayTeamID);
             _homeTeam = SetupTeam(_homeTeamID);
 
-            _simulator = new Simulator(_awayTeam, _homeTeam);
+            //Set up the simulator
+            _simulator = new Simulator(new BasketballSimulator(_awayTeam, _homeTeam));
         }
 
         ///<summary>Will set up the teams in the game scene.  </summary>

@@ -11,4 +11,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7830eb361341648578485a660f04315a, type: 3}
   m_Name: TeamsDatabase
   m_EditorClassIdentifier: 
-  Teams: []
+  Teams:
+  - _id: Cavs
+    CityName: Cleveland
+    NickName: Cavaliers
+    Conference: East
+    Record:
+      Wins: 7
+      Losses: 10
+      Ties: 0
+  - _id: Pelicans
+    CityName: New Orleans
+    NickName: Pelicans
+    Conference: West
+    Record:
+      Wins: 10
+      Losses: 7
+      Ties: 0
+  - _id: Warriors
+    CityName: Golden State
+    NickName: Warriors
+    Conference: West
+    Record:
+      Wins: 0
+      Losses: 0
+      Ties: 0
+  - _id: Bulls
+    CityName: Chicago
+    NickName: Bulls
+    Conference: East
+    Record:
+      Wins: 0
+      Losses: 0
+      Ties: 0

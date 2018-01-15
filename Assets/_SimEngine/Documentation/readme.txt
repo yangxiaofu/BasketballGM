@@ -7,16 +7,18 @@ Onion Layers (From Core to outside layers)
             Create Standings 1/14/2017
         Find a way to simulate two fake teams against one another.1/14/2017
         Randomize Wins and losses and score. 1/14/2017
-        Find a way to generate a season.  This will probably be a custom inspector of some sort that is tied to teh event manager.  
-        Create small sample season of 6 games.
-
+        
+    Building a Schedule Generator. 
     Add Fake Players in the game.
     Add Fake Stats in the game.
-    Players
     Team Management
         Personnel Moves
+            Sign
+            Release
         Trades
+        Contracts
     Season
+        Create small sample season of 6 games.  
     Statistics Management (alpha game)
     Off-Season
     Player Development (beta game)

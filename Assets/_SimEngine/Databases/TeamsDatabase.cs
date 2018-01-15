@@ -14,6 +14,12 @@ namespace Donger.BuckeyeEngine{
 		{
 			return Teams.Find(a => a.ID == teamID);
 		}
+
+		///<summary>This will reset the team database.  </summary>
+		public void Reset()
+		{
+			Teams.Clear();
+		}
 	}
 
 }

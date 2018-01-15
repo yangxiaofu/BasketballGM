@@ -78,6 +78,7 @@
      <Compile Include="Assets\DongerCalendar\Core\Scripts\ICoreEvent.cs" />
      <Compile Include="Assets\DongerCalendar\Core\Scripts\PracticeCoreEvent.cs" />
      <Compile Include="Assets\DongerCalendar\Core\Scripts\PracticeEventBehaviour.cs" />
+     <Compile Include="Assets\DongerCalendar\Core\Scripts\ScheduleGenerator.cs" />
      <Compile Include="Assets\DongerCalendar\Core\Scripts\TeamBehaviour.cs" />
      <Compile Include="Assets\DongerCalendar\Core\Scripts\Vector3ExtensionMethod.cs" />
      <Compile Include="Assets\DongerCalendar\Core\UIBuilder\Scripts\CellUI\ButtonCellDongerUI.cs" />

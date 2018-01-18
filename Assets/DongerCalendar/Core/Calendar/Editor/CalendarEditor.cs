@@ -6,7 +6,7 @@ using UnityEditor;
 
 namespace Donger.BuckeyeEngine{
 	[CustomEditor(typeof(Calendar))]
-	public class CalendarEditor : Editor{
+	public class CalendarEditor : Editor {
 		Calendar _calendar;
 		public int Year;
 		public int Month;
@@ -63,10 +63,11 @@ namespace Donger.BuckeyeEngine{
             //Draw the selected date
             DrawSelectedDate();
 
-            //Draw the calendar
+            //Draw the calendar for the inspector.
             float buttonWidth = 50f;
-
-            DrawCalendar(Year, Month, _day, buttonWidth);
+            var calenderInspector = new CalendarInspector(_calendar, _skin, Year, Month, _day, buttonWidth);
+            var calendarDrawer = new CalendarDrawerEditor(calenderInspector);
+            calendarDrawer.Draw();
 
             EditorGUILayout.Space();
 
@@ -146,79 +147,6 @@ namespace Donger.BuckeyeEngine{
                 IncreaseMonth();
             }
             EditorGUILayout.EndHorizontal();
-        }
-
-		///<summary>Draw the calendar GUI</summary>
-        protected virtual void DrawCalendar(int year, int month, int day, float buttonWidth)
-        {
-            float columnWidth = buttonWidth * 1.05f;
-            //Get days in the month
-            var daysInMonth = DateTime.DaysInMonth(year, month);
-
-            //List out the days of the week.
-            EditorGUILayout.BeginHorizontal();
-            for (int i = 0; i < Calendar.DaysInWeek.Length; i++)
-            {
-                EditorGUILayout.LabelField(Calendar.DaysInWeek[i], GUILayout.Width(buttonWidth));   
-            }
-            EditorGUILayout.EndHorizontal();
-
-            //While there are still days left in the month.
-            while (day <= daysInMonth)
-            {
-                //Initializations
-                var date = new DateTime(year, month, day);
-                var dayOfWeek = date.DayOfWeek;
-                var dayOfWeekIndex = Calendar.GetDayOfWeekIndex(dayOfWeek);
-
-				//Begin a new row.
-                EditorGUILayout.BeginHorizontal();
-
-                //Draw the empty slots where days to not exist.
-                for (int i = 0; i < dayOfWeekIndex; i++)
-                {
-                    GUILayout.Box("", GUILayout.Width(buttonWidth));
-                }
-
-                //Draw actual days
-                for (int i = dayOfWeekIndex; i < 7; i++)
-                {
-                    EditorGUILayout.BeginVertical(GUILayout.Width(columnWidth));
-
-                    //If the calendar contains an EventManager as a Component.
-                    if (_calendar.EventManager)
-                    {
-                        //Refresh the search date.
-                        var searchDate = new DateTime(year, month, day);
-                        var coreEvents = _calendar.EventManager.GetEvents(searchDate);
-                        //Help the user visually determine if there are events on a particular day.
-                        //If there are events, have a custom look to it. 
-                        if (coreEvents.Count > 0){
-                            GUILayout.Box(coreEvents.Count.ToString(), _skin.box, GUILayout.Width(buttonWidth));
-                        } 
-                        //otherwise, just go with the default.  
-                        else {
-                            GUILayout.Box(coreEvents.Count.ToString(), GUILayout.Width(buttonWidth));    
-                        }
-                    }
-                    
-					//If a day is selected, then update the calendar with the date. 
-                    if(GUILayout.Button(day.ToString(), GUILayout.Width(buttonWidth)))
-					{
-                        //Update the calender monobehaviour
-                        _calendar.UpdateCalendar(year, month, day);
-					}
-
-                    EditorGUILayout.EndVertical();
-
-                    day++;
-
-                    //If not more days exist in the month, then do not continue to add days.
-                    if (day > daysInMonth) break;
-                }
-
-                EditorGUILayout.EndHorizontal();
-            }
         }
 
 		///<summary> Separator</summary>

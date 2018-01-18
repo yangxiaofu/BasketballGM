@@ -53,8 +53,14 @@
   <ItemGroup>
      <Compile Include="Assets\_SimEngine\League\Editor\StandingsEditor.cs" />
      <Compile Include="Assets\_SimEngine\TeamGenerator\Editor\TeamGeneratorEditor.cs" />
+     <Compile Include="Assets\DongerCalendar\Core\Calendar\Editor\CalendarDrawer.cs" />
+     <Compile Include="Assets\DongerCalendar\Core\Calendar\Editor\CalendarDrawerEditor.cs" />
      <Compile Include="Assets\DongerCalendar\Core\Calendar\Editor\CalendarEditor.cs" />
+     <Compile Include="Assets\DongerCalendar\Core\Calendar\Editor\CalendarEditorWindow.cs" />
+     <Compile Include="Assets\DongerCalendar\Core\Calendar\Editor\CalendarInspector.cs" />
      <Compile Include="Assets\DongerCalendar\Core\Calendar\Editor\CalendarTests.cs" />
+     <Compile Include="Assets\DongerCalendar\Core\Calendar\Editor\CalendarWindow.cs" />
+     <Compile Include="Assets\DongerCalendar\Core\Calendar\Editor\ICalendarDrawer.cs" />
      <Compile Include="Assets\DongerCalendar\Core\Calendar\Editor\ListEditorWindow.cs" />
      <Compile Include="Assets\DongerCalendar\Core\Calendar\Editor\MonthListEditorWindow.cs" />
      <Compile Include="Assets\DongerCalendar\Core\Calendar\Editor\YearListEditorWindow.cs" />

@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4840328686177020}
   - component: {fileID: 114981062956451034}
   - component: {fileID: 114760468743695644}
+  - component: {fileID: 114198359298115826}
   m_Layer: 0
   m_Name: EventManager
   m_TagString: Untagged
@@ -41,6 +42,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114198359298115826
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1437818542613368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e00cb60630ca848e18260cfccc3aeaeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _skin: {fileID: 11400000, guid: 2bf14f5a1a7ad49e481090ef5bab459d, type: 2}
 --- !u!114 &114760468743695644
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -55,8 +68,8 @@ MonoBehaviour:
   _database: {fileID: 11400000, guid: f8cc9aed529b643e9a0d9d6e474f5c5b, type: 2}
   _parentForEvents: {fileID: 0}
   _eventType: 0
-  _numberOfEventsToGenerate: 5
-  EventDate: 1/11/2018
+  _numberOfEventsToGenerate: 1
+  EventDate: 1/1/2018
 --- !u!114 &114981062956451034
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -71,7 +84,7 @@ MonoBehaviour:
   SelectedDate:
     _year: 2018
     _month: 1
-    _day: 11
+    _day: 1
   StartingYear: 2018
   StartingMonth: 1
   StartingDay: 1

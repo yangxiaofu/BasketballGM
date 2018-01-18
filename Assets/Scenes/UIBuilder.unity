@@ -152,6 +152,12 @@ Prefab:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 114508633414441294, guid: 0bac3fa507dee4c1d916631dadde575a,
+        type: 2}
+      propertyPath: Schedule
+      value: 
+      objectReference: {fileID: 11400000, guid: 19d547307b2db459fba7598e50f482a1,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0bac3fa507dee4c1d916631dadde575a, type: 2}
   m_IsPrefabParent: 0
@@ -179,8 +185,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 366834064}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -252,50 +257,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 251273949}
---- !u!1 &366834063
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 366834064}
-  - component: {fileID: 366834065}
-  m_Layer: 0
-  m_Name: Game
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &366834064
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 366834063}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1803725177}
-  - {fileID: 895422315}
-  m_Father: {fileID: 168391793}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &366834065
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 366834063}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41fcf0fedf9fc4b458f81dc30c578d2a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _awayTeamID: Pelicans
-  _homeTeamID: Cavs
 --- !u!1001 &430296353
 Prefab:
   m_ObjectHideFlags: 0
@@ -340,11 +301,6 @@ Prefab:
       propertyPath: _parentForEvents
       value: 
       objectReference: {fileID: 168391793}
-    - target: {fileID: 114760468743695644, guid: 9869c75d6006746bc8e78f12b4bdb7f8,
-        type: 2}
-      propertyPath: _numberOfEventsToGenerate
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9869c75d6006746bc8e78f12b4bdb7f8, type: 2}
   m_IsPrefabParent: 0
@@ -486,55 +442,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d08ab40bd3c7a4ef6ba11bc844a8ee8a, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &895422314
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 895422315}
-  - component: {fileID: 895422316}
-  m_Layer: 0
-  m_Name: Cleveland
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &895422315
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 895422314}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 366834064}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &895422316
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 895422314}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e8a53d107718480e85f49d2e99fdc15, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _team:
-    _id: Cavs
-    CityName: Cleveland
-    NickName: Cavaliers
-    Conference: East
-    Record:
-      Wins: 7
-      Losses: 10
-      Ties: 0
 --- !u!1 &956659406 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1246503238848948, guid: c613970aa5d364c57a894cb3cf0b0b95,
@@ -950,52 +857,3 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: aea7dacc667074a48b724c4e1f0c03ab, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1803725176
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1803725177}
-  - component: {fileID: 1803725178}
-  m_Layer: 0
-  m_Name: New Orleans
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1803725177
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1803725176}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 366834064}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1803725178
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1803725176}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e8a53d107718480e85f49d2e99fdc15, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _team:
-    _id: Pelicans
-    CityName: New Orleans
-    NickName: Pelicans
-    Conference: West
-    Record:
-      Wins: 10
-      Losses: 7
-      Ties: 0
